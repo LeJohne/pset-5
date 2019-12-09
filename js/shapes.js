@@ -22,11 +22,23 @@ window.onload = function() {
 }
 
 /*
- * Exercise 1.
+ * Exercise 1
  */
 
 const sayHello = function() {
-    // write your exercise 1 code here
+  const canvas = document.getElementById('student-canvas-1');
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  do {
+    var message = prompt("Message: ")
+    if (message.length > 50) {
+      alert("Your message is too long. Keep it under 50 characters")
+    }
+  } while(message.length > 50)
+
+  ctx.font = "48px sans-serif";
+  ctx.strokeText(message, 30, 70, 994);
+
 };
 
 /*
@@ -34,7 +46,7 @@ const sayHello = function() {
  */
 
 const drawRectangle = function() {
-    // write your exercise 2 code here
+
 };
 
 /*
@@ -42,7 +54,7 @@ const drawRectangle = function() {
  */
 
 const drawColoredRectangle = function() {
-    // write your exercise 3 code here
+
 };
 
 /*
@@ -50,7 +62,7 @@ const drawColoredRectangle = function() {
  */
 
 const drawTriangle = function() {
-    // write your exercise 4 code here
+
 };
 
 /*
@@ -58,7 +70,7 @@ const drawTriangle = function() {
  */
 
 const drawFace = function() {
-    // write your exercise 4 code here
+
 };
 
 /*
@@ -66,5 +78,5 @@ const drawFace = function() {
  */
 
 const drawPyramid = function() {
-    // write your exercise 5 code here
+
 };
