@@ -19,6 +19,7 @@ window.onload = function() {
     // equivalent set of six event listeners for your solutions. the first one is done for you.
 
     document.getElementById("hello").onclick = sayHello;
+    document.getElementById("rectangle").onclick = drawRectangle;
 }
 
 /*
@@ -46,7 +47,48 @@ const sayHello = function() {
  */
 
 const drawRectangle = function() {
+  const canvas = document.getElementById('student-canvas-2');
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+  var width = 0;
+  var height = 0;
+  var x = 0;
+  var y = 0;
+  do {
+    var width = prompt("Width: ")
+    var height = prompt("Height: ")
+    var x = prompt("X: ")
+    var y = prompt("Y: ")
+    if (width == null || height == null || x == null || y == null) {
+      break;
+    }
+    if (width > 1024 || width < 1) {
+      alert("Your width must be between 1 and 1024.")
+    }
+    else if (height > 512 || height < 1) {
+      alert("Your height must be between 1 and 512.")
+    }
+    else if (x < 1 || x > 1024) {
+      alert("Your x-coordinate must be between 1 and 1024.")
+    }
+    else if (y < 1 || y > 512) {
+      alert("Your y-coordinate must be between 1 and 512.")
+    }
+    else if (isNaN(width) || isNaN(height) || isNaN(x) || isNaN(y)) {
+      alert("One of your values is not a number.")
+    }
+    else if (Number(width) + Number(x) > 1024 || Number(height) + Number(y) > 512) {
+      alert("Your rectangle won't fit on the canvas.")
+    }
+  } while (width > 1024 || width < 1 || height > 512 || height < 1 || x < 1 || x > 1024 || y < 1 || y > 512 || isNaN(width) || isNaN(height) || isNaN(x) || isNaN(y) || Number(width) + Number(x) > 1024 || Number(height) + Number(y) > 512)
+
+  if (!(width == null) && !(height == null) && !(x == null) && !(y == null)) {
+    ctx.beginPath();
+    ctx.rect(x, y, width, height);
+    ctx.closePath();
+    ctx.stroke();
+  }
 };
 
 /*
