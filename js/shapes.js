@@ -151,7 +151,19 @@ const drawColoredRectangle = function() {
      if (base > 1024 || height > 512 || hypo > 1310720) {
        alert("Your triangle won't fit on the canvas.")
      }
-   }  
+   }  while ((Math.floor(base)*Math.floor(base) + height*height != hypo*hypo) || isNaN(line1) || isNaN(line2) || isNaN(line3) || base > 1024 || height > 512 || hypo > 1310720 || base == 0 || height == 0 || hypo == 0)
+
+   if ((base*base + height*height == hypo*hypo) && (base < 1024 && height < 512 && hypo < 1145) && (base != 0 && height != 0 && hypo != 0) && (base != null && height != null && hypo != null)) {
+     height = height + 25
+     base = base + 25
+     ctx.beginPath();
+     ctx.moveTo(25, 25);
+     ctx.lineTo(25, height);
+     ctx.lineTo(base, height)
+     ctx.lineTo(25, 25)
+     ctx.stroke();
+   };
+ }
 
 /*
  * Exercise 5.
