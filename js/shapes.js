@@ -6,7 +6,7 @@ window.onload = function() {
     document.getElementById("smile-sample").onclick = drawFaceStaff;
     document.getElementById("pyramid-sample").onclick = drawPyramidStaff;
 
-    // Eleemnt ID Below Here
+    // Eleemnt ID Below Here.
 
     document.getElementById("hello").onclick = sayHello;
     document.getElementById("rectangle").onclick = drawRectangle;
