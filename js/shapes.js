@@ -22,7 +22,7 @@ window.onload = function() {
     document.getElementById("rectangle").onclick = drawRectangle;
     document.getElementById("colored-rectangle").onclick = drawColoredRectangle;
     document.getElementById("triangle").onclick = drawTriangle;
-    document.getElementById("face").onclick = drawFace;
+    document.getElementById("smile").onclick = drawFace;
 }
 
 /*
@@ -171,7 +171,44 @@ const drawColoredRectangle = function() {
  */
 
 const drawFace = function() {
+  const canvas = document.getElementById('student-canvas-5');
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+  do {
+    var radii = (prompt("Radius: "))
+    if (radii == null) {
+      break;
+    }
+    if (radii < 32) {
+      alert("Your radius must be at least 32.")
+    }
+    if (isNaN(radii)) {
+      alert("Your radius is not a number.")
+    }
+    if (radii > 256) {
+      alert("Your smiley face won't fit on the canvas.")
+    }
+  } while (radii > 256 || isNaN(radii) || radii < 32)
+
+  var radii_eyes = 0.15 * radii
+  var radii_mouth = 0.7 * radii
+  ctx.beginPath();
+  ctx.arc(512, 256, radii, 0, 2 * Math.PI);
+  ctx.stroke();
+  ctx.closePath();
+  ctx.beginPath();
+  ctx.arc(512, 256, radii_mouth, 0, Math.PI);
+  ctx.stroke();
+  ctx.closePath();
+  ctx.beginPath();
+  ctx.arc(512 - 0.4 * radii, 256 - 0.4 * radii, radii_eyes, 0, 2 * Math.PI);
+  ctx.stroke();
+  ctx.closePath();
+  ctx.beginPath();
+  ctx.arc(512 + 0.4 * radii, 256 - 0.4* radii, radii_eyes, 0, 2 * Math.PI);
+  ctx.stroke();
+  ctx.closePath();
 };
 
 /*
