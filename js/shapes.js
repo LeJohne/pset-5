@@ -97,7 +97,26 @@ const drawRectangle = function() {
  */
 
 const drawColoredRectangle = function() {
+  const canvas = document.getElementById('student-canvas-3');
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+  do {
+    var color = (prompt("Color: "))
+    if (color == null) {
+      break;
+    }
+    color = String(color)
+    var color_setup = color.toUpperCase()
+    if (color_setup != "GREEN" && color_setup != "BLACK" && color_setup != "BLUE" && color_setup != "ORANGE" && color_setup != "PURPLE" && color_setup != "RED" && color_setup != "YELLOW") {
+      alert(color + " is not a supported color.")
+    }
+  } while (color_setup != "GREEN" && color_setup != "BLACK" && color_setup != "BLUE" && color_setup != "ORANGE" && color_setup != "PURPLE" && color_setup != "RED" && color_setup != "YELLOW")
+
+  if (color != null) {
+    ctx.fillStyle = color_setup;
+    ctx.fillRect(10, 10, 100, 50);
+  }
 };
 
 /*
