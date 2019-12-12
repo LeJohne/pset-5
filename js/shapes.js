@@ -124,9 +124,34 @@ const drawColoredRectangle = function() {
  * Exercise 4.
  */
 
-const drawTriangle = function() {
+ const drawTriangle = function() {
+   const canvas = document.getElementById('student-canvas-4');
+   const ctx = canvas.getContext('2d');
+   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-};
+   do {
+     var line1 = prompt("Side 1: ")
+     var line2 = prompt("Side 2: ")
+     var line3 = prompt("Side 3: ")
+     var height = Math.min (line1, line2, line3)
+     var hypo = Math.max(line1, line2, line3)
+     var base = Math.sqrt(hypo*hypo - height*height)
+     if (base == 0 && height == 0 && hypo == 0) {
+       break;
+     }
+     line1 = Number(line1)
+     line2 = Number(line2)
+     line3 = Number(line3)
+     if (base*base + height*height != hypo*hypo || base == 0 || height == 0 || hypo == 0  || line1+line2+line3-hypo-height != base) {
+       alert("That's not a valid right triangle.")
+     }
+     if (isNaN(line1) || isNaN(line2) || isNaN(line3)) {
+       alert("One of your sides is not a number.")
+     }
+     if (base > 1024 || height > 512 || hypo > 1310720) {
+       alert("Your triangle won't fit on the canvas.")
+     }
+   }  
 
 /*
  * Exercise 5.
