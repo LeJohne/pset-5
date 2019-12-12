@@ -23,6 +23,7 @@ window.onload = function() {
     document.getElementById("colored-rectangle").onclick = drawColoredRectangle;
     document.getElementById("triangle").onclick = drawTriangle;
     document.getElementById("smile").onclick = drawFace;
+      document.getElementById("pyramid").onclick = drawPyramid;
 }
 
 /*
