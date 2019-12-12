@@ -217,5 +217,44 @@ const drawFace = function() {
  */
 
 const drawPyramid = function() {
+  const canvas = document.getElementById('student-canvas-6');
+  const ctx = canvas.getContext('2d');
+  var distance = 0
+  var height_1 = 0
+  var distance_mod = 0
+  var height_mod = 0
+  var counter = 5
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+  do {
+    var side = (prompt("Side: "))
+    if (side == null) {
+      break;
+    }
+    if (side < 1) {
+      alert("Your block size must be at least 1.")
+    }
+    if (side >= 101) {
+      alert("Your pyramid won't fit on the canvas")
+    }
+    if (isNaN(side)) {
+      alert("Your block size is not a number.")
+    }
+  } while (isNaN(side) || side >= 101 || side < 1)
+
+  for (i = 5; i > 0; i--) {
+    counter = i
+    while(counter >= 1) {
+      ctx.beginPath();
+      ctx.rect(10 + Number(distance), (502 - side) - Number(height_1), Number(side), Number(side));
+      ctx.stroke();
+      ctx.closePath();
+      distance = Number(distance) + Number(side)
+      counter--
+    }
+    distance_mod++
+    distance = distance_mod * (1/2 * side)
+    height_mod++
+    height_1 = height_mod * side
+  }
 };
